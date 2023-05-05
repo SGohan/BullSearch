@@ -15,13 +15,19 @@ COLOR_RED = '\033[1;31m'
 # Palabras clave a buscar
 keywords = ['password', 'pass', 'passwd']
 
+# Configuración de colores
+COLOR_NC = '\033[0m'
+COLOR_YELLOW = '\033[1;33m'
+COLOR_CYAN = '\033[1;36m'
+COLOR_MAGENTA = '\033[1;35m'
+COLOR_RED = '\033[1;31m'
+
 # Función para imprimir el banner
 def print_banner():
     print(COLOR_MAGENTA)
-    print(' _______         _______ _______ _______ ')
-    print('|    ___|    ___|    ___|   _   |    ___|')
-    print('|    ___|    ___|    ___|       |    ___|')
-    print('|___|   |_______|_______|___|___|_______|')
+    print(' __                  __   ___       __   __      ') 
+    print('|__) |  | |    |    /__` |__   /\  |__) /  ` |__|') 
+    print('|__) \__/ |___ |___ .__/ |___ /~~\ |  \ \__, |  |')
     print(COLOR_NC)
 
 # Función para buscar las palabras clave en un archivo
@@ -31,7 +37,7 @@ def search_file(file_path):
             with open(file_path, 'r') as file:
                 for num, line in enumerate(file, 1):
                     if keyword in line.lower():
-                        print(COLOR_YELLOW + f'[+] Se ha encontrado la palabra "{keyword}" en el archivo "{file_path}" en la línea {num}' + COLOR_NC)
+                        print(f'{COLOR_YELLOW}[+] Se ha encontrado la palabra "{keyword}"{COLOR_NC} en el archivo {COLOR_CYAN}"{file_path}"{COLOR_NC} en la línea {COLOR_RED}{num}{COLOR_NC}')
     except Exception as e:
         pass
 
